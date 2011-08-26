@@ -1,6 +1,6 @@
 module Saxon
+  autoload :Base, 'saxon/base'
+  autoload :Parser, 'saxon/parser'
 end
 
-require File.join(File.dirname(__FILE__), 'saxon', 'saxon')
-require File.join(File.dirname(__FILE__), 'saxon', 'dsl')
-require File.join(File.dirname(__FILE__), 'saxon', 'parser')
+require 'saxon/saxon'

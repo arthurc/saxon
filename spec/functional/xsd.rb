@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'saxon')
 
 class XSD
-  include Saxon::DSL
+  include Saxon::Base
   
   namespaces :default => "http://www.w3.org/2001/XMLSchema"
   
@@ -10,22 +10,23 @@ class XSD
   on "simpleType", :delegate => "SimpleType"
   
   class Element
-    include Saxon::DSL
+    include Saxon::Base
     
     on "complexType", :delegate => "ComplexType"
     on "simpleType", :delegate => "SimpleType"
   end
   
   class ComplexType
-    include Saxon::DSL
+    include Saxon::Base
     
     on "sequence" do
       on "element", :delegate => "Element"
+      on "attribute"
     end
   end
   
   class SimpleType
-    include Saxon::DSL
+    include Saxon::Base
     
     on "restriction" do
       on "enumeration"

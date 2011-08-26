@@ -7,6 +7,7 @@ module Saxon
     end
     
     def add_on(path, options, block)
+      @state_machine.create_state(path.first)
     end
     
     def add_namespaces(namespaces)
